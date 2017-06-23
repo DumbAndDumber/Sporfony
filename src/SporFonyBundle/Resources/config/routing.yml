@@ -1,7 +1,3 @@
 spor_fony_homepage:
     path:     /
     defaults: { _controller: SporFonyBundle:Default:index }
-
-spor_fony_hello_world:
-    path:     /hello-world
-    defaults: { _controller: SporFonyBundle:Hello:index }
