@@ -1,0 +1,15 @@
+SporFonyBundle\Entity\Slot:
+    type: entity
+    table: null
+    repositoryClass: SporFonyBundle\Repository\SlotRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        startTime:
+            type: time
+            unique: true
+    lifecycleCallbacks: {  }

@@ -1,0 +1,33 @@
+SporFonyBundle\Entity\Lesson:
+    type: entity
+    table: null
+    repositoryClass: SporFonyBundle\Repository\LessonRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        recurrence:
+            type: string
+            length: 255
+            nullable: true
+    oneToMany:
+        slots:
+            targetEntity: Slot
+            mappedBy: lessons
+            joinColumn:
+                name: slotId
+                referencedColumnName: id
+    manyToOne:
+        coach:
+            targetEntity: User
+            inversedBy: lessons
+            joinColumn:
+                name: coachId
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
