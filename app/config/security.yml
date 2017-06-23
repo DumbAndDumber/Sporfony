@@ -6,6 +6,8 @@ security:
     providers:
         in_memory:
             memory: ~
+        main:
+            id: fos_user.user_provider.username
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -14,7 +16,17 @@ security:
             security: false
 
         main:
-            anonymous: ~
+            anonymous: true
+            pattern: ^/
+            provider: main
+            form_login:
+                login_path: login
+                check_path: login_check
+            logout:
+                path: logout
+                target: login
+            remember_me:
+                secret: %secret%
             # activate different ways to authenticate
 
             # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
@@ -22,3 +34,5 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+    encoders:
+        SporFonyBundle\Entity\User: sha256
