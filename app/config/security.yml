@@ -18,10 +18,11 @@ security:
         main:
             anonymous: true
             pattern: ^/
+            logout: true
             provider: main
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
                 path: logout
                 target: login
@@ -36,3 +37,13 @@ security:
             #form_login: ~
     encoders:
         SporFonyBundle\Entity\User: sha256
+
+    role_hierarchy:
+            ROLE_STUDENT:      ROLE_USER
+            ROLE_TEACHER:     [ROLE_USER, ROLE_TEACHER]
+            ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_TEACHER]
+
+    access_control:
+            - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+            - { path: ^/, roles: ROLE_USER }
