@@ -23,6 +23,7 @@ class Lesson
     private $recurrence;
 
     /**
+
      * @var \DateTime
      */
     private $date;
@@ -33,6 +34,7 @@ class Lesson
     private $coach;
 
     /**
+
      * @var \SporFonyBundle\Entity\Room
      */
     private $room;
@@ -41,7 +43,6 @@ class Lesson
      * @var \SporFonyBundle\Entity\Slot
      */
     private $slot;
-
 
     /**
      * Get id
@@ -123,6 +124,7 @@ class Lesson
     public function getDate()
     {
         return $this->date;
+
     }
 
     /**
