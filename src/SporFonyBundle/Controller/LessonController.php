@@ -4,6 +4,8 @@ namespace SporFonyBundle\Controller;
 
 use SporFonyBundle\Entity\Lesson;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\BrowserKit\Response;
+use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
@@ -38,11 +40,16 @@ class LessonController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($lesson);
-            $em->flush();
 
-            return $this->redirectToRoute('lesson_show', array('id' => $lesson->getId()));
+            $em = $this->getDoctrine()->getManager();
+            $a = $em->getRepository(Lesson::class)->findBySlotAndRoom($lesson->getSlot(), $lesson->getRoom(), $lesson->getDate());
+            if (empty($a)){
+                $em->persist($lesson);
+                $em->flush();
+                return $this->redirectToRoute('lesson_show', array('id' => $lesson->getId()));
+            }
+            $form->addError(new FormError("la room ou le slot est deja utilisé a cette date"));
+            return new \Symfony\Component\HttpFoundation\Response();
         }
 
         return $this->render('lesson/new.html.twig', array(

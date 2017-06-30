@@ -22,6 +22,10 @@ class Room
      */
     private $capacity;
 
+    public function __toString() {
+        return $this->name;
+    }
+
 
     /**
      * Get id

@@ -1,6 +1,8 @@
 <?php
 
 namespace SporFonyBundle\Repository;
+use SporFonyBundle\Entity\Room;
+use SporFonyBundle\Entity\Slot;
 
 /**
  * ClassRepository
@@ -10,4 +12,8 @@ namespace SporFonyBundle\Repository;
  */
 class LessonRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findBySlotAndRoom(Slot $slot, Room $room, \DateTime $date) {
+        return $this->getEntityManager()
+        -$this->findBy(['room' => $room, 'slot' => $slot, 'date' => $date]);
+    }
 }
