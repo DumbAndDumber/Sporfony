@@ -1,3 +1,19 @@
 spor_fony_homepage:
     path:     /
     defaults: { _controller: SporFonyBundle:Default:index }
+
+spor_fony_lesson:
+    resource: "@SporFonyBundle/Resources/config/routing/lesson.yml"
+    prefix:   /lesson
+
+spor_fony_user:
+    resource: "@SporFonyBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+spor_fony_room:
+    resource: "@SporFonyBundle/Resources/config/routing/room.yml"
+    prefix:   /room
+
+spor_fony_slot:
+    resource: "@SporFonyBundle/Resources/config/routing/slot.yml"
+    prefix:   /slot
