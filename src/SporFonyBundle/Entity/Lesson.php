@@ -44,6 +44,10 @@ class Lesson
      */
     private $slot;
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * Get id
      *
