@@ -1,0 +1,24 @@
+lesson_index:
+    path:     /
+    defaults: { _controller: "SporFonyBundle:Lesson:index" }
+    methods:  GET
+
+lesson_show:
+    path:     /{id}/show
+    defaults: { _controller: "SporFonyBundle:Lesson:show" }
+    methods:  GET
+
+lesson_new:
+    path:     /new
+    defaults: { _controller: "SporFonyBundle:Lesson:new" }
+    methods:  [GET, POST]
+
+lesson_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SporFonyBundle:Lesson:edit" }
+    methods:  [GET, POST]
+
+lesson_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SporFonyBundle:Lesson:delete" }
+    methods:  DELETE

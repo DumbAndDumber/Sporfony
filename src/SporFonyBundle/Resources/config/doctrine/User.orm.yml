@@ -8,12 +8,4 @@ SporFonyBundle\Entity\User:
             id: true
             generator:
                 strategy: AUTO
-    fields:
-        email:
-            type: string
-            length: 255
-            unique: true
-        name:
-            type: string
-            length: 255
     lifecycleCallbacks: {  }
