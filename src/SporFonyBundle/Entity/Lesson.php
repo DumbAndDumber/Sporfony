@@ -23,9 +23,10 @@ class Lesson
     private $recurrence;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+
+     * @var \DateTime
      */
-    private $slots;
+    private $date;
 
     /**
      * @var \SporFonyBundle\Entity\User
@@ -33,12 +34,15 @@ class Lesson
     private $coach;
 
     /**
-     * Constructor
+
+     * @var \SporFonyBundle\Entity\Room
      */
-    public function __construct()
-    {
-        $this->slots = new \Doctrine\Common\Collections\ArrayCollection();
-    }
+    private $room;
+
+    /**
+     * @var \SporFonyBundle\Entity\Slot
+     */
+    private $slot;
 
     /**
      * Get id
@@ -99,37 +103,28 @@ class Lesson
     }
 
     /**
-     * Add slot
+     * Set date
      *
-     * @param \SporFonyBundle\Entity\Slot $slot
+     * @param \DateTime $date
      *
      * @return Lesson
      */
-    public function addSlot(\SporFonyBundle\Entity\Slot $slot)
+    public function setDate($date)
     {
-        $this->slots[] = $slot;
+        $this->date = $date;
 
         return $this;
     }
 
     /**
-     * Remove slot
+     * Get date
      *
-     * @param \SporFonyBundle\Entity\Slot $slot
+     * @return \DateTime
      */
-    public function removeSlot(\SporFonyBundle\Entity\Slot $slot)
+    public function getDate()
     {
-        $this->slots->removeElement($slot);
-    }
+        return $this->date;
 
-    /**
-     * Get slots
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getSlots()
-    {
-        return $this->slots;
     }
 
     /**
@@ -155,5 +150,52 @@ class Lesson
     {
         return $this->coach;
     }
-}
 
+    /**
+     * Set room
+     *
+     * @param \SporFonyBundle\Entity\Room $room
+     *
+     * @return Lesson
+     */
+    public function setRoom(\SporFonyBundle\Entity\Room $room = null)
+    {
+        $this->room = $room;
+
+        return $this;
+    }
+
+    /**
+     * Get room
+     *
+     * @return \SporFonyBundle\Entity\Room
+     */
+    public function getRoom()
+    {
+        return $this->room;
+    }
+
+    /**
+     * Set slot
+     *
+     * @param \SporFonyBundle\Entity\Slot $slot
+     *
+     * @return Lesson
+     */
+    public function setSlot(\SporFonyBundle\Entity\Slot $slot = null)
+    {
+        $this->slot = $slot;
+
+        return $this;
+    }
+
+    /**
+     * Get slot
+     *
+     * @return \SporFonyBundle\Entity\Slot
+     */
+    public function getSlot()
+    {
+        return $this->slot;
+    }
+}

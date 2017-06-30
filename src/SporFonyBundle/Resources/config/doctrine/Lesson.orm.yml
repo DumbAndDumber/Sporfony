@@ -16,13 +16,8 @@ SporFonyBundle\Entity\Lesson:
             type: string
             length: 255
             nullable: true
-    oneToMany:
-        slots:
-            targetEntity: Slot
-            mappedBy: lessons
-            joinColumn:
-                name: slotId
-                referencedColumnName: id
+        date:
+            type: date
     manyToOne:
         coach:
             targetEntity: User
@@ -30,4 +25,19 @@ SporFonyBundle\Entity\Lesson:
             joinColumn:
                 name: coachId
                 referencedColumnName: id
+        room:
+            targetEntity: Room
+            inversedBy: lessons
+            joinColumn:
+                name: roomId
+                referencedColumnName: id
+        slot:
+            targetEntity: Slot
+            inversedBy: lessons
+            joinColumn:
+                name: slotId
+                referencedColumnName: id
+    uniqueConstraints:
+        date_slot:
+            columns: [date, slotId]
     lifecycleCallbacks: {  }

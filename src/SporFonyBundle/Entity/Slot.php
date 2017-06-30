@@ -8,7 +8,7 @@ namespace SporFonyBundle\Entity;
 class Slot
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -21,7 +21,7 @@ class Slot
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -52,4 +52,3 @@ class Slot
         return $this->startTime;
     }
 }
-

@@ -1,0 +1,24 @@
+slot_index:
+    path:     /
+    defaults: { _controller: "SporFonyBundle:Slot:index" }
+    methods:  GET
+
+slot_show:
+    path:     /{id}/show
+    defaults: { _controller: "SporFonyBundle:Slot:show" }
+    methods:  GET
+
+slot_new:
+    path:     /new
+    defaults: { _controller: "SporFonyBundle:Slot:new" }
+    methods:  [GET, POST]
+
+slot_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SporFonyBundle:Slot:edit" }
+    methods:  [GET, POST]
+
+slot_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SporFonyBundle:Slot:delete" }
+    methods:  DELETE

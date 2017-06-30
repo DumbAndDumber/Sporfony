@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Slots list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Starttime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for slot in slots %}
+            <tr>
+                <td><a href="{{ path('slot_show', { 'id': slot.id }) }}">{{ slot.id }}</a></td>
+                <td>{% if slot.startTime %}{{ slot.startTime|date('H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('slot_show', { 'id': slot.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('slot_edit', { 'id': slot.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('slot_new') }}">Create a new slot</a>
+        </li>
+    </ul>
+{% endblock %}

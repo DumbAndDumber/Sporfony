@@ -1,0 +1,24 @@
+room_index:
+    path:     /
+    defaults: { _controller: "SporFonyBundle:Room:index" }
+    methods:  GET
+
+room_show:
+    path:     /{id}/show
+    defaults: { _controller: "SporFonyBundle:Room:show" }
+    methods:  GET
+
+room_new:
+    path:     /new
+    defaults: { _controller: "SporFonyBundle:Room:new" }
+    methods:  [GET, POST]
+
+room_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "SporFonyBundle:Room:edit" }
+    methods:  [GET, POST]
+
+room_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "SporFonyBundle:Room:delete" }
+    methods:  DELETE
