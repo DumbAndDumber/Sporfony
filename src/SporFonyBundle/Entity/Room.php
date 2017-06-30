@@ -8,7 +8,7 @@ namespace SporFonyBundle\Entity;
 class Room
 {
     /**
-     * @var int
+     * @var integer
      */
     private $id;
 
@@ -18,7 +18,7 @@ class Room
     private $name;
 
     /**
-     * @var int
+     * @var integer
      */
     private $capacity;
 
@@ -26,7 +26,7 @@ class Room
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -74,11 +74,10 @@ class Room
     /**
      * Get capacity
      *
-     * @return int
+     * @return integer
      */
     public function getCapacity()
     {
         return $this->capacity;
     }
 }
-

@@ -1,13 +1,25 @@
 <?php
 
 namespace SporFonyBundle\Entity;
-use FOS\UserBundle\Model\User as FosUser;
 
 /**
  * User
  */
-class User extends FosUser
+class User
 {
+    /**
+     * @var integer
+     */
+    private $id;
 
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 }
-
